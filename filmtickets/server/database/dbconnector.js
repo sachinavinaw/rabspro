@@ -6,7 +6,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
       try {
         //db connect
-        mongoose.connect("mongodb://localhost/dashboard", {
+        mongoose.connect(process.env.MONGO_PROD, {
           useNewUrlParser: true,
           useCreateIndex: true,
           useUnifiedTopology: true,
