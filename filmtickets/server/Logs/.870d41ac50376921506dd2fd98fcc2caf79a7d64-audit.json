@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "d:\\R&D\\GitProjects\\asp-mvc-sample-app\\planner-app\\server\\Logs\\.870d41ac50376921506dd2fd98fcc2caf79a7d64-audit.json",
+    "files": [
+        {
+            "date": 1609033832881,
+            "name": "d:\\R&D\\GitProjects\\asp-mvc-sample-app\\planner-app\\server\\Logs\\2020-12-27-app-server.log",
+            "hash": "7f232b087d4e08e08aa9215e526b65c8"
+        }
+    ]
+}
