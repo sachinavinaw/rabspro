@@ -1,0 +1,12 @@
+{
+    "database":{
+        "url":"",
+        "schema":""
+    },
+
+    "jwt":{
+        "key":"fTo8MgOEcP",
+        "algorithm":""
+    }
+
+}
