@@ -7,6 +7,8 @@ console.log(app.get(`env`));
 //importing controllers
 //const users = require("./controllers/user/users");
 const movie=require('./controllers/movies');
+const genre=require('./controllers/genres');
+const error=require('./utils/error');
 //
 /** 
 if (!config.get('jwtPrivateKey')) {
@@ -23,15 +25,10 @@ app.use(cors());
 //Initializing routes
 //app.use("/users", users);
 app.use('/movies',movie);
+app.use('/genres',genre);
+app.use(error);
 //
 
-app.use(function (err, req, res, next) {
-  logger.error(err.message);
-  res.status(500).json({
-    message: err.message,
-  });
 
-  next();
-});
 
 module.exports = app;

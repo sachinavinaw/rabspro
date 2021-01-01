@@ -1,7 +1,8 @@
 const mongoose=require('mongoose');
 const Joi = require('joi');
+const{genreSchema,validateGenre}=require('./genre');
 
-const{genreSchema} = require( path.resolve( __dirname, "./genre.js" ) );
+//const{genreSchema} = require( path.resolve( __dirname, "./genre.js" ) );
 
 
 const Movie=mongoose.model('Movie',new mongoose.Schema({
@@ -20,6 +21,10 @@ const Movie=mongoose.model('Movie',new mongoose.Schema({
     },
     ratings:{
         type:Number
+    },
+    genreName:{
+        type:String,
+        required:true
     }
 }));
 
@@ -29,7 +34,8 @@ function validateMovies(movie){
     const schema={
         movieName:Joi.string().min(1).max(50).required(),
         releaseDate:Joi.required(),
-        duration:Joi.required()
+        duration:Joi.required(),
+        genreName: Joi.required(),
         };
         return Joi.validate(movie,schema);
 }
