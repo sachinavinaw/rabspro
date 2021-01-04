@@ -49,9 +49,8 @@ a.header-button {
     width: 28rem;
     margin-right: -2px;
     color: #99abe2;
-    border: 1px solid rgb(136 144 255);
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border: 1px solid #3F51B5;
+    border-radius: 5px 0 0 5px;
     padding-left: 20px;
     background: transparent;
 }
@@ -60,12 +59,12 @@ a.header-button {
 }
 
 .search-form button {
-    background-color: #5560ff;
+    background-color: #3F51B5;
     width: auto;
     padding: 5px 16px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border: 1px solid #5560ff;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #3F51B5;
+    border-bottom: 0;
     color: #fff;
 }
 

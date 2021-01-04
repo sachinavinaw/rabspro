@@ -1,4 +1,5 @@
 import React from "react";
+import PrimaryNavbar from "./Primary-Navbar";
 import "../../assets/css/theme.css";
 
 function Navbar() {
