@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800&amp;display=swap");
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+html *::first-letter {
+  text-transform: uppercase;
+}
+
+body{
+    background-color: #001232!important;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+  }
+  
+  *::-webkit-scrollbar {
+    width: 4px;
+    background-color: #F5F5F5;
+  }
+  
