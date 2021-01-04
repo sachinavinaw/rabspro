@@ -1,5 +1,6 @@
 import React from "react";
 import "../../assets/css/theme.css";
+
 function Navbar() {
   return (
     <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-theme">
