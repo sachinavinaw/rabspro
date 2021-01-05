@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 global.AppBasePath = __dirname;
+global._ = require("underscore");
 global.logger = require("./utils/logger");
 let DBConnector = require("./database/dbconnector");
 
