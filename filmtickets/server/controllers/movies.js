@@ -9,12 +9,17 @@ const express=require('express');
 const router=express.Router();
 const{Movie,validateMovies}=require('../models/movie');
 const{Genre}=require('../models/genre');
+const{upload}=require('../utils/imgStorage');
+var fs = require('fs');
+var path = require('path');
 
 //route to get all the movies
 router.get('/',async(req,res,next)=>{
+
     try{
       const movie=await Movie.find();
-      res.send(movie);
+      //res.send(movie);
+      res.render('app',{items:movie});
     }
     catch(ex){
         next(ex);
@@ -60,21 +65,28 @@ router.get('/:id',async(req,res)=>{
 
  });
 
-//Add a movie
-router.post('/',async(req,res,next)=>{
-    try{
+// Adding the movies 
+router.post('/', upload.single('image'), async(req, res, next) => {
+  try{
     const result=validateMovies(req.body);
     if(result.error)  return res.status(400).send(result.error.details[0].message);
     const genre=await Genre.find({genreName:req.body.genreName});
     if(genre.length==0) return res.status(404).send("Invalid Genre");
     var movie= new Movie({
-        movieName:req.body.movieName,
-        releaseDate:req.body.releaseDate,
-        duration:req.body.duration,
-        genreName:req.body.genreName
+      movieName: req.body.movieName,
+      releaseDate: req.body.releaseDate,
+      duration:req.body.duration,
+      ratings: req.body.ratings,
+      genreName:req.body.genreName,
+      img: {
+            data: fs.readFileSync(path.join(AppBasePath , 'movieImages' , req.file.filename)),
+          //data: fs.readFileSync(path.join(__dirname + '..\\movieImages\\' + req.file.filename)),
+          contentType: 'image/png'
+      }
     });
     movie=await movie.save();
-    res.send(movie);
+    res.redirect('/');
+    //res.send(movie);
 }
    catch(ex){
      next(ex);

@@ -25,6 +25,11 @@ const Movie=mongoose.model('Movie',new mongoose.Schema({
     genreName:{
         type:String,
         required:true
+    },
+    img:
+    {
+        data: Buffer,
+        contentType: String
     }
 }));
 
@@ -36,6 +41,7 @@ function validateMovies(movie){
         releaseDate:Joi.required(),
         duration:Joi.required(),
         genreName: Joi.required(),
+        ratings:Joi.required()
         };
         return Joi.validate(movie,schema);
 }

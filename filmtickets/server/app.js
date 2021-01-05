@@ -9,6 +9,7 @@ console.log(app.get(`env`));
 const movie=require('./controllers/movies');
 const genre=require('./controllers/genres');
 const error=require('./utils/error');
+
 //
 /** 
 if (!config.get('jwtPrivateKey')) {
@@ -22,13 +23,15 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 app.use(cors());
 
+
 //Initializing routes
 //app.use("/users", users);
 app.use('/movies',movie);
 app.use('/genres',genre);
+// Set EJS as templating engine 
+app.set("view engine", "ejs");
+//app.set('views','./views');
 app.use(error);
 //
-
-
 
 module.exports = app;
