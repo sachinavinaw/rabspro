@@ -112,6 +112,7 @@ filmtickets/server/node_modules/
 filmtickets/server/.eslintcache
 filmtickets/server/.gitignore
 filmtickets/server/package-lock.json
+filmtickets/server/Logs/
 filmtickets/Logs
 
 
