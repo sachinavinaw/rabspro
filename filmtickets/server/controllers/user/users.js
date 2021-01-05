@@ -1,4 +1,3 @@
-/** 
 const express = require("express");
 const User = require("../../models/users/user");
 
@@ -16,7 +15,7 @@ router.post("/add", async (req, res) => {
   }
 });
 
-router.post("/users/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   //Login a registered user
   try {
     const { email, password } = req.body;
@@ -24,14 +23,30 @@ router.post("/users/login", async (req, res) => {
     if (!user) {
       return res
         .status(401)
-        .send({ error: "Login failed! Check authentication credentials" });
+        .json({ message: "Login failed! Check authentication credentials" });
     }
     const token = await user.generateAuthToken();
-    res.send({ user, token });
+    let data = _.pick(user, "id", "name", "email");
+    res
+      .header("Authorization", "Bearer " + token)
+      .status(200)
+      .json({
+        message: "User successfuly logged in.",
+        data: data,
+      });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+router.get("/all", async (req, res) => {
+  try {
+    let fields = ["id", "name", "email"];
+    const users = await User.find({}, fields);
+    res.json(users);
   } catch (error) {
     res.status(400).send(error);
   }
 });
 
 module.exports = router;
-*/
