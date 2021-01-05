@@ -1,9 +1,8 @@
-/** 
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
-//const jwtConfig = config.get('jwt');
+const jwtConfig = config.get("jwt");
 
 const userSchema = mongoose.Schema({
   name: {
@@ -41,12 +40,12 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-/** 
 userSchema.methods.generateAuthToken = async function () {
   // Generate an auth token for the user
   const user = this;
-  const token = jwt.sign({ _id: user._id }, jwtConfig.key);
-  user.tokens = user.tokens.concat({ token });
+  const token = jwt.sign({ _id: user._id }, jwtConfig);
+  //user.tokens = user.tokens.concat({ token });
+  user.tokens = { token };
   await user.save();
   return token;
 };
@@ -55,11 +54,11 @@ userSchema.statics.findByCredentials = async (email, password) => {
   // Search for a user by email and password.
   const user = await User.findOne({ email });
   if (!user) {
-    throw new Error({ error: "Invalid login credentials" });
+    throw new Error("Email is invalid");
   }
   const isPasswordMatch = await bcrypt.compare(password, user.password);
   if (!isPasswordMatch) {
-    throw new Error({ error: "Invalid login credentials" });
+    throw new Error("Password is wrong");
   }
   return user;
 };
@@ -67,4 +66,3 @@ userSchema.statics.findByCredentials = async (email, password) => {
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
-*/

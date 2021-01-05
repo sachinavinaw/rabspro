@@ -19,6 +19,7 @@
     "lodash": "^4.17.20",
     "mongoose": "^5.11.8",
     "randomstring": "^1.1.5",
+    "underscore": "^1.12.0",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.0"
   },
