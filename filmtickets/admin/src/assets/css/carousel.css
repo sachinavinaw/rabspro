@@ -1,0 +1,83 @@
+.carousel{
+    margin-top:1px;
+    background-color: black;
+    margin-bottom: 1rem;
+}
+.carousel-indicators li {
+    background-color: #ff0037!important;
+}
+.slider-image-container{
+    height: 100%;
+    width: 100%;
+}
+
+.slider-image-container img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.title{
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+}
+
+.title h4, .h4{
+    margin-bottom: 0rem!important;
+}
+
+.title-heading{
+    color: #fff;
+    font-size: 16px;
+    border-bottom: 2px solid #31d7a9;
+    width: fit-content;
+}
+
+.title-link{
+    color: #fff;
+    font-size: 15px;
+}
+
+.image-container{
+    position: relative;
+    height: 300px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+.image-container img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    -webkit-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+}
+
+.image-container img:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.image-details{
+    height: 120px;
+    background-color: #032055;
+    font-family: "Open Sans", sans-serif;
+    cursor: pointer;
+    border-radius: 0 0 10px 10px;
+}
+
+.image-details h5{
+    border-top: 1px solid rgb(255, 255, 255, 0.2);
+    padding: 10px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    border-bottom: 1px dashed #11326f;
+}
+
+.image-details h5:hover{
+    color: #31d7a9!important;
+}
