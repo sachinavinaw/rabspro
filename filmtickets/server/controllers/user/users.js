@@ -1,6 +1,6 @@
 const express = require("express");
 const User = require("../../models/users/user");
-
+const authorize = require("../../middleware/authorize");
 const router = express.Router();
 
 router.post("/add", async (req, res) => {
@@ -28,11 +28,12 @@ router.post("/login", async (req, res) => {
     const token = await user.generateAuthToken();
     let data = _.pick(user, "id", "name", "email");
     res
-      .header("Authorization", "Bearer " + token)
+      //.header("Authorization", "Bearer " + token)
       .status(200)
       .json({
         message: "User successfuly logged in.",
         data: data,
+        token: token,
       });
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -44,6 +45,19 @@ router.get("/all", async (req, res) => {
     let fields = ["id", "name", "email"];
     const users = await User.find({}, fields);
     res.json(users);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
+router.get("/findOne", authorize, async (req, res, next) => {
+  try {
+    let fields = ["id", "name", "email"];
+    const user = await User.findOne({ _id: req.decoded._id }, fields);
+    res.status(200).json({
+      message: "User details found.",
+      data: user,
+    });
   } catch (error) {
     res.status(400).send(error);
   }
