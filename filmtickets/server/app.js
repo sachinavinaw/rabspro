@@ -3,7 +3,7 @@ const cors = require("cors");
 const config = require("config");
 const express = require("express");
 const app = express();
-
+var path = require('path');
 const indexRouter = require("./controllers/index");
 
 if (!config.get("jwtPrivateKey")) {
@@ -18,7 +18,8 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use(indexRouter);
-
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs');
 app.use(function (err, req, res, next) {
   res.status(500).json({
     message: err.message,

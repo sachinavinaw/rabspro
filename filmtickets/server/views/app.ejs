@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Uploading</title>
+</head>
+ 
+<body>
+    <h1>To Upload Image on mongoDB</h1>
+    <hr>
+    <div>
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="movieName">Movie Name</label>
+                <input type="text" id="movieName" placeholder="movieName"
+                       value="" name="movieName" required>
+            </div>
+            <div>
+                <label for="releaseDate">Release Date</label>
+                <input type="text" id="releaseDate" placeholder="releaseDate"
+                       value="" name="releaseDate" required>
+            </div>
+            <div>
+                <label for="duration">Duration</label>
+                <input type="text" id="duration" placeholder="releaseDate"
+                       value="" name="duration" required>
+            </div>
+            <div>
+                <label for="ratings">Ratings</label>
+                <input type="text" id="ratings" placeholder="ratings"
+                       value="" name="ratings" required>
+            </div>
+            <div>
+                <label for="genreName">GenreName</label>
+                <input type="text" id="genreName" placeholder="genreName"
+                       value="" name="genreName" required>
+            </div>
+            <div>
+                <label for="image">Upload Image</label>
+                <input type="file" id="image"
+                       name="image" value="" required>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+ 
+    <hr>
+ 
+    <h1>Uploaded Images</h1>
+    <div>
+        <% items.forEach(function(image) { %>
+        <div>
+            <div>
+                <img src="data:image/<%=image.img.contentType%>;base64,
+                     <%=image.img.data.toString('base64')%>">
+                <div>
+                    <h5><%= image.name %></h5>
+                     
+<p><%= image.desc %></p>
+ 
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</body>
+ 
+</html>
