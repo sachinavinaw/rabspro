@@ -108,6 +108,10 @@ filmtickets/client/node_modules/
 filmtickets/client/.eslintcache
 filmtickets/client/.gitignore
 filmtickets/client/package-lock.json
+filmtickets/admin/node_modules/
+filmtickets/admin/.eslintcache
+filmtickets/admin/.gitignore
+filmtickets/admin/package-lock.json
 filmtickets/server/node_modules/
 filmtickets/server/.eslintcache
 filmtickets/server/.gitignore
